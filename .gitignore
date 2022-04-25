@@ -1,0 +1,12 @@
+#MacOS
+.DS_Store
+
+#Client-App
+Client-App/.DS_Store
+Client-App/Client-App.xcworkspace
+Client-App/Client-App.xcodeproj
+Client-App/Podfile
+Client-App/Podfile.lock
+Client-App/Pods
+Client-App/Client-App/Assets.xcassets/
+Client-App/Client-App/Preview Content/
