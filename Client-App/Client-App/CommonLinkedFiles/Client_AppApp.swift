@@ -1,9 +1,8 @@
 //
-//  Client_AppApp.swift
-//  Client-App
 //
-//  Created by crus on 24.04.2022.
 //
+//  Created by Romany GirGis, 2022.
+//  Copyright © 2022 All rights reserved
 
 import SwiftUI
 
@@ -11,7 +10,7 @@ import SwiftUI
 struct Client_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }
