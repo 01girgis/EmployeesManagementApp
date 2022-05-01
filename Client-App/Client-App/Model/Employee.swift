@@ -5,3 +5,9 @@
 //  Copyright © 2022 All rights reserved
 
 import Foundation
+
+struct Employee:Identifiable {
+    var id:String
+    var name:String
+    var job:String
+}
