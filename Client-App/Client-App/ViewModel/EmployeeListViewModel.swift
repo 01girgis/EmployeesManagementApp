@@ -19,7 +19,12 @@ class EmployeeListViewModel:ObservableObject{
         //Data Snapshot Listener
         dbInstance.collection("Employees").addSnapshotListener { snapshootQuery , error in
             
-            
+            //Error Check
+            guard error == nil else{
+                print("\(error!.localizedDescription)")
+                return
+            }
+            //
         }
     }
 }
