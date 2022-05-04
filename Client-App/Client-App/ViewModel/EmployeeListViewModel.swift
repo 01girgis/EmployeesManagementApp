@@ -27,8 +27,16 @@ class EmployeeListViewModel:ObservableObject{
             
             //Processes on FireBase Documents
             self.listContent = snapshotQuery!.documents.map { (snapshotDoc) -> Employee in
+                //Snapshot That Contains Doc
                 let realTimeData = snapshotDoc.data()
-             
+                
+                //Load Parameters from Real-Time Snapshot
+                let dataName = realTimeData["name"] as? String ?? "NoName"
+                let dataJob = realTimeData["job"] as? String ?? "NoJob"
+                
+                //pass Parameters To The Model
+                let getEmployeeData = Employee(id: UUID().uuidString , name: dataName, job: dataJob)
+                return getEmployeeData
             }
         }
     }
