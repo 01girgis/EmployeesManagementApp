@@ -17,14 +17,19 @@ class EmployeeListViewModel:ObservableObject{
         let dbInstance = Firestore.firestore()
         
         //Data Snapshot Listener
-        dbInstance.collection("Employees").addSnapshotListener { snapshootQuery , error in
+        dbInstance.collection("Employees").addSnapshotListener { snapshotQuery , error in
             
             //Error Check
             guard error == nil else{
                 print("\(error!.localizedDescription)")
                 return
             }
-            //
+            
+            //Processes on FireBase Documents
+            self.listContent = snapshotQuery!.documents.map { (snapshotDoc) -> Employee in
+                let realTimeData = snapshotDoc.data()
+             
+            }
         }
     }
 }
