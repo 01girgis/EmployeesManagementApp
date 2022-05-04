@@ -10,10 +10,16 @@ import FirebaseFirestore
 class EmployeeListViewModel:ObservableObject{
     
     //Data Array of ViewModel
-    var listContent = [Employee] ()
+    @Published var listContent = [Employee] ()
     
     func LoadData(){
         //Database Connection
         let dbInstance = Firestore.firestore()
+        
+        //Data Snapshot Listener
+        dbInstance.collection("Employees").addSnapshotListener { snapshootQuery , error in
+            
+            
+        }
     }
 }
