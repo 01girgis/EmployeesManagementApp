@@ -5,11 +5,15 @@
 //  Copyright © 2022 All rights reserved
 
 import SwiftUI
+import FirebaseFirestore
 
 struct MainView: View {
+    
+    //View Model Instance
+    @ObservedObject var vModel = EmployeeListViewModel()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+
     }
 }
 
