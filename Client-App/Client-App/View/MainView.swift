@@ -13,7 +13,18 @@ struct MainView: View {
     @ObservedObject var vModel = EmployeeListViewModel()
     
     var body: some View {
-
+        NavigationView{
+            List{
+                ForEach(vModel.listContent) {employee in
+                    Text("\(employee.name) :: \(employee.job)")
+                }
+            }
+        }
+    }
+    
+    //Data Fetching on Load App View
+    init(){
+        vModel.LoadData()
     }
 }
 
