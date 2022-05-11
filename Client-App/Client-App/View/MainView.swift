@@ -19,7 +19,7 @@ struct MainView: View {
                     //Table View Content
                     ZStack(alignment: .leading){
                         RoundedRectangle(cornerRadius: 20.0)
-                            .fill(Color.green)
+                            .fill(Color(UIColor(red: 0.55, green: 0.70, blue: 0.33, alpha: 1.00)))
                             .frame(height: 100)
                         
                         //Data Content Stack
