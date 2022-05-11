@@ -39,6 +39,7 @@ struct MainView: View {
                     //ZStack
                     
                 }//ForEach
+                .listRowBackground(Color(UIColor(red: 0.48, green: 0.58, blue: 0.18, alpha: 1.00)))
             }
             .navigationTitle(Text("Employees"))
             .padding(EdgeInsets(top: 0, leading: -10, bottom: 0, trailing: -10))
