@@ -15,12 +15,14 @@ struct MainView: View {
     var body: some View {
         NavigationView{
             List{
-                ForEach(vModel.listContent) {employee in
+                ForEach(vModel.listContent) { employee in
                     //Table View Content
                     ZStack(alignment: .leading){
                         RoundedRectangle(cornerRadius: 20.0)
                             .fill(Color.green)
                             .frame(height: 100)
+                        
+                        //Data Content Stack
                         VStack(alignment: .leading){
                             Text("Employee : \(employee.name)")
                                 .font(.title2)
@@ -31,16 +33,16 @@ struct MainView: View {
                         }
                         .padding()
                         //VStack
+                        
                     }
                     .padding(-10)
                     //ZStack
+                    
                 }//ForEach
             }
             .navigationTitle(Text("Employees"))
-            .padding(EdgeInsets(top: 0
-                                , leading: -20, bottom: 0, trailing: -20))
+            .padding(EdgeInsets(top: 0, leading: -10, bottom: 0, trailing: -10))
         }
- 
     }
        
     //Data Fetching on Load App View
