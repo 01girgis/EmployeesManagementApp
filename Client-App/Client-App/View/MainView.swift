@@ -45,8 +45,11 @@ struct MainView: View {
         }
     }
        
-    //Data Fetching on Load App View
+    //View Class Constructor
     init(){
+        //Set Background Color
+        UITableView.appearance().backgroundColor = UIColor(red: 0.48, green: 0.58, blue: 0.18, alpha: 1.00)
+        //Data Fetch from FireBase
         vModel.LoadData()
     }
 }
