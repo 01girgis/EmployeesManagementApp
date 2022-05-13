@@ -48,11 +48,20 @@ struct MainView: View {
        
     //View Class Constructor
     init(){
+        // MARK: View
         //Set Background Color
         UITableView.appearance().backgroundColor = UIColor(red: 0.48, green: 0.58, blue: 0.18, alpha: 1.00)
+        
+        //set navigation bar appearance to its Default Color
+        let  barAppearance = UINavigationBarAppearance()
+        barAppearance.configureWithOpaqueBackground()
+        barAppearance.backgroundColor = UIColor(red: 0.48, green: 0.58, blue: 0.18, alpha: 1.00)
+
+        // MARK: DATA
         //Data Fetch from FireBase
         vModel.LoadData()
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
