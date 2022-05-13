@@ -57,6 +57,10 @@ struct MainView: View {
         barAppearance.configureWithOpaqueBackground()
         barAppearance.backgroundColor = UIColor(red: 0.48, green: 0.58, blue: 0.18, alpha: 1.00)
 
+        //apply the color on Scrolling
+        UINavigationBar.appearance().standardAppearance = barAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = barAppearance
+        
         // MARK: DATA
         //Data Fetch from FireBase
         vModel.LoadData()
