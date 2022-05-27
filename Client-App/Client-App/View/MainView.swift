@@ -12,6 +12,8 @@ struct MainView: View {
     //View Model Instance
     @ObservedObject var vModel = EmployeeListViewModel()
     
+    @State var searchNote = ""
+    
     var body: some View {
         NavigationView{
             List{
@@ -42,6 +44,7 @@ struct MainView: View {
                 .listRowBackground(Color(UIColor(red: 0.48, green: 0.58, blue: 0.18, alpha: 1.00)))
             }
             .navigationTitle(Text("Employees"))
+            .searchable(text: $searchNote)
             .padding(EdgeInsets(top: 0, leading: -10, bottom: 0, trailing: -10))
         }
     }
