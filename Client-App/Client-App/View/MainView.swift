@@ -12,12 +12,13 @@ struct MainView: View {
     //View Model Instance
     @ObservedObject var vModel = EmployeeListViewModel()
     
+    //Search Input filed
     @State var searchNote = ""
     
     var body: some View {
         NavigationView{
             List{
-                ForEach(vModel.listContent) { employee in
+                ForEach(searchFilter) { employee in
                     //Table View Content
                     ZStack(alignment: .leading){
                         RoundedRectangle(cornerRadius: 20.0)
@@ -69,6 +70,14 @@ struct MainView: View {
         vModel.LoadData()
     }
     
+    //DataFilter
+    var searchFilter :[Employee] {
+        if searchNote.isEmpty {
+            return vModel.listContent
+        } else {
+            return vModel.listContent.filter{ $0.name == searchNote}
+        }
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
