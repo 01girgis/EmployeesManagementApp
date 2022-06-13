@@ -10,3 +10,14 @@ Client-App/Podfile.lock
 Client-App/Pods
 Client-App/Client-App/Assets.xcassets/
 Client-App/Client-App/Preview Content/
+
+#Admin-App
+Admin-App/.DS_Store
+Admin-App/Admin-App.xcworkspace
+Admin-App/Admin-App.xcodeproj
+Admin-App/Podfile
+Admin-App/Podfile.lock
+Admin-App/Pods
+Admin-App/Admin-App/CommonLinkedFiles/Assets.xcassets/
+Admin-App/Admin-App/CommonLinkedFiles/PreviewContent/
+Admin-App/Admin-App/CommonLinkedFiles/GoogleService-Info.plist
