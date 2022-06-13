@@ -24,7 +24,21 @@ class EmployeeListViewModel:ObservableObject{
                 return
             }
             
+            //Mapping Data Based On Employee Class
+            self.listContent = snapshotUpdater.map {  dataReLoader -> Employee in
+                //Data Loader
+                let dataPayload = dataReLoader.data()
+                
+                //Load Parameters from Real-Time Snapshot
+                let myName = dataPayload["name"] as? String ?? "NoName"
+                let myJob = dataPayload["job"] as? String ?? "NoJob"
+                
+                //pass Parameters To The Model
+                let myEmployee = Employee(id: UUID().uuidString , name: myName, job: myJob)
+                return myEmployee
+            }
        
         }
     }
+    
 }
