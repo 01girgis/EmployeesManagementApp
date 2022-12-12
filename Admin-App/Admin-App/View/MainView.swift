@@ -72,7 +72,7 @@ struct MainView: View {
             
             //Action Sheet Launcher
             .sheet(isPresented: $launchAddSheet, onDismiss: {
-                vModel.snapshotDataLoad()
+                vModel.snapshotDataChecking()
             }){
                 AddDataSheet()
             }
@@ -100,7 +100,7 @@ struct MainView: View {
         
         // MARK: DATA
         //Data Fetch from FireBase
-        vModel.snapshotDataLoad()
+        vModel.snapshotDataChecking()
     }
     
     //DataFilter

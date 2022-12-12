@@ -12,8 +12,13 @@ class EmployeeListViewModel:ObservableObject{
     //Data Array of ViewModel
     @Published var listContent = [Employee] ()
     
-    //Real-time Data Snapshot
-    func snapshotDataLoad(){
+    //Data Retrieving
+    func getData(){
+        let dbInstance = Firestore.firestore()
+    }
+    
+    //Real-time Data Snapshot Checking
+    func snapshotDataChecking(){
         //Database Connection
         let dbInstance = Firestore.firestore()
         
@@ -57,7 +62,7 @@ class EmployeeListViewModel:ObservableObject{
             }
             
             //Data Load after free error check
-            self.snapshotDataLoad()
+            self.snapshotDataChecking()
         }
     
     }
