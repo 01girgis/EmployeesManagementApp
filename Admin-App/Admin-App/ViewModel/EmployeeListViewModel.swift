@@ -12,13 +12,13 @@ class EmployeeListViewModel:ObservableObject{
     //Data Array of ViewModel
     @Published var listContent = [Employee] ()
     
-    //Data Retrieving Function
-    func LoadData(){
+    //Real-time Data Snapshot
+    func snapshotDataLoad(){
         //Database Connection
         let dbInstance = Firestore.firestore()
         
         //Data Collection Selection
-        dbInstance.collection("POPs").addSnapshotListener{ (snapShot , error) in
+        dbInstance.collection("Employees").addSnapshotListener{ (snapShot , error) in
             //Error Checking
             guard let snapshotUpdater = snapShot?.documents else {
                 print("\(error!.localizedDescription)")
@@ -31,8 +31,8 @@ class EmployeeListViewModel:ObservableObject{
                 let dataPayload = dataReLoader.data()
                 
                 //Load Parameters from Real-Time Snapshot
-                let myName = dataPayload["nn"] as? String ?? "NoName"
-                let myJob = dataPayload["jj"] as? String ?? "NoJob"
+                let myName = dataPayload["name"] as? String ?? "NoName"
+                let myJob = dataPayload["job"] as? String ?? "NoJob"
                 
                 //pass Parameters To The Model
                 let myEmployee = Employee(id: UUID().uuidString , name: myName, job: myJob)
@@ -48,7 +48,7 @@ class EmployeeListViewModel:ObservableObject{
         let dbIntance = Firestore.firestore()
         
         //Data Insert to DB.
-        dbIntance.collection("POPs").addDocument(data: ["name":Name , "job":Job]) { error in
+        dbIntance.collection("Employees").addDocument(data: ["name":Name , "job":Job]) { error in
             //Error Checking
             guard error == nil else {
                 print("Inserting issue \n")
@@ -57,7 +57,7 @@ class EmployeeListViewModel:ObservableObject{
             }
             
             //Data Load after free error check
-            self.LoadData()
+            self.snapshotDataLoad()
         }
     
     }
@@ -68,7 +68,7 @@ class EmployeeListViewModel:ObservableObject{
         let dbInstance = Firestore.firestore()
         
         //Data Selection for remove
-        dbInstance.collection("POPs").document(EmployeeToRemove.id.self).delete { error in
+        dbInstance.collection("Employees").document(EmployeeToRemove.id.self).delete { error in
             //Error Checking
             guard error == nil else {
                 print("Delete issue\n")
