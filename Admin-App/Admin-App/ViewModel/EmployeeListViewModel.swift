@@ -14,7 +14,27 @@ class EmployeeListViewModel:ObservableObject{
     
     //Data Retrieving
     func getData(){
+        //Database Conection
         let dbInstance = Firestore.firestore()
+        
+        //Data Selection
+        dbInstance.collection("Employees").getDocuments{ (getDoc ,error) in
+            //Erorr Checking
+            guard error == nil else {
+                print("\(error!.localizedDescription)")
+                return
+            }
+            
+            //Mapping Data with FireBase DocumentID
+            DispatchQueue.main.async {
+                self.listContent = getDoc!.documents.map { dataPayload in
+                    let dataToShow = Employee(id: dataPayload.documentID ,
+                                              name: dataPayload["name"] as? String ?? "bad",
+                                              job: dataPayload["job"] as? String ?? "bad")
+                    return dataToShow
+                }
+            }
+        }
     }
     
     //Real-time Data Snapshot Checking
