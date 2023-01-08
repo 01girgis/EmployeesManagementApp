@@ -30,7 +30,7 @@ struct MainView: View {
                         
                         //Data Content Stack
                         VStack(alignment: .leading){
-                            Text("Employee : \(employees.name)")
+                            Text("Employee : \(employees.name) \(employees.id)")
                                 .font(.title2)
                                 .padding(.bottom , 10)
                             Text("Job-Title   : \(employees.job)")
@@ -75,6 +75,8 @@ struct MainView: View {
                 vModel.snapshotDataChecking()
             }){
                 AddDataSheet()
+            }.onAppear{
+                self.vModel.snapshotDataChecking()
             }
         }
         
